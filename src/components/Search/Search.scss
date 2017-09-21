@@ -1,0 +1,52 @@
+.container{
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation{
+  display: flex;
+  justify-content: space-between;
+}
+
+.input{
+  background: black;
+  color: white;
+  padding: 20px;
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  border-bottom: solid 2px transparent;
+}
+
+.input:focus{
+  border-bottom: solid 2px #f55263;
+}
+
+.navigation{
+  margin: 20px 0;
+}
+
+.button{
+  border: 0;
+  border-radius: 4px;
+  outline: 0;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.option{
+  composes: button;
+  padding: 5px 10px;
+  background-color: #3c3c3c;
+}
+
+.search{
+  composes: button;
+  padding: 10px 30px;
+  background-color: #f55263;
+}
