@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from './Feed.scss';
 
-import MovieItem from './../MovieItem/MovieItem';
+import MovieItem from '../../components/MovieItem/MovieItem';
 
 class Feed extends Component {
   render() {

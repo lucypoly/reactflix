@@ -1,16 +1,17 @@
-.container{
+.container {
   text-transform: uppercase;
   color: white;
   display: flex;
   flex-direction: column;
 }
 
-.navigation{
+.navigation {
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 
-.input{
+.input {
   background: black;
   color: white;
   padding: 20px;
@@ -20,15 +21,15 @@
   border-bottom: solid 2px transparent;
 }
 
-.input:focus{
+.input:focus {
   border-bottom: solid 2px #f55263;
 }
 
-.navigation{
+.navigation {
   margin: 20px 0;
 }
 
-.button{
+.button {
   border: 0;
   border-radius: 4px;
   outline: 0;
@@ -39,13 +40,13 @@
   cursor: pointer;
 }
 
-.option{
+.option {
   composes: button;
   padding: 5px 10px;
   background-color: #3c3c3c;
 }
 
-.search{
+.search {
   composes: button;
   padding: 10px 30px;
   background-color: #f55263;
