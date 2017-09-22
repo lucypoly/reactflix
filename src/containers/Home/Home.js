@@ -6,16 +6,16 @@ import Feed from '../Feed/Feed';
 import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
 
-import * as movieActions from '../../actions/movieActions';
+import * as feedActions from '../../actions/feedActions';
 
 class Home extends Component {
     render() {
-        const { setMovie } = this.props.movieActions;
+        const { getMovies } = this.props.feedActions;
 
         return (
             <div>
                 <Header>
-                    <Search setMovie={setMovie} {...this.props} />
+                    <Search getMovies={getMovies} {...this.props} />
                 </Header>
                 <Feed {...this.props} />
             </div>
@@ -25,13 +25,13 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
-        movie: state.movie
+        title: state.title
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        movieActions: bindActionCreators(movieActions, dispatch)
+        feedActions: bindActionCreators(feedActions, dispatch)
     }
 }
 

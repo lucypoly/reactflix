@@ -8,8 +8,8 @@ class Search extends Component {
     }
 
     onSearchBtnClick = () => {
-        this.props.setMovie(this.state.name);
-        this.props.history.push(this.state.name);
+        this.props.getMovies(this.state.name);
+        this.props.history.push(`search/${this.state.name}`);
     };
 
     handleChange = (event) => {

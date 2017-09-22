@@ -1,8 +1,6 @@
-import { combineReducers } from 'redux'
-import feed from './feed'
-import movie from './movie'
+import { combineReducers } from 'redux';
+import feed from './feed';
 
 export default combineReducers({
-    feed,
-    movie
+    feed
 })
