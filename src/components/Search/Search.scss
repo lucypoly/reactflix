@@ -40,10 +40,18 @@
   cursor: pointer;
 }
 
+.button:focus {
+  outline: 0;
+}
+
 .option {
   composes: button;
   padding: 5px 10px;
   background-color: #3c3c3c;
+}
+
+.active {
+  background-color: #f55263;
 }
 
 .search {

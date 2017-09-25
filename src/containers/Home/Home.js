@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import Feed from '../Feed/Feed';
+import Feed from '../../components/Feed/Feed';
 import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
 
@@ -11,13 +11,14 @@ import * as feedActions from '../../actions/feedActions';
 class Home extends Component {
     render() {
         const { getMovies } = this.props.feedActions;
+        const { feed } = this.props;
 
         return (
             <div>
                 <Header>
                     <Search getMovies={getMovies} {...this.props} />
                 </Header>
-                <Feed {...this.props} />
+                <Feed {...this.props} movies={feed.movies} error={feed.error} fetching={feed.fetching} />
             </div>
         );
     }
@@ -25,7 +26,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
-        title: state.title
+        feed: state.feed
     }
 }
 

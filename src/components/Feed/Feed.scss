@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  margin: 50px 0;
+}
+
+.wrapper {
+  width: calc(33% - 50px);
+  margin: 50px 25px 0;
+  display: inline-block;
+}
+
+.empty {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  color: #c0c0c0;
+  font-size: 72px;
+}
+
+.nav {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #e8e8e8;
+  color: #424242;
+  padding: 10px;
+}
+
+.option {
+  cursor: pointer;
+  background: transparent;
+  outline: 0;
+  border: 0;
+  color: #424242;
+}
+
+.option:focus {
+  outline: 0;
+  color: #f55263;
+}
+
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+}
