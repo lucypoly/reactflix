@@ -1,45 +1,46 @@
 import React, { Component } from 'react';
 import styles from './Feed.scss';
 
+import SortLink from '../../containers/SortLink/SortLink';
 import MovieItem from '../MovieItem/MovieItem';
 
 class Feed extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            movies: this.props.movies,
-            date: false,
-            rating: false
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         movies: this.props.movies,
+    //         date: false,
+    //         rating: false
+    //     };
+    // }
+    //
+    // componentWillReceiveProps(props) {
+    //     this.setState({
+    //         movies: props.movies
+    //     })
+    // }
 
-    componentWillReceiveProps(props) {
-        this.setState({
-            movies: props.movies
-        })
-    }
-
-    onDateSort = () => {
-        this.setState({
-            movies: this.state.movies.sort((a, b) =>
-            b.release_year - a.release_year),
-            date: true,
-            rating: false
-        })
-    };
-
-    onRatingSort = () => {
-        this.setState({
-            movies: this.state.movies.sort((a, b) =>
-            b.rating - a.rating),
-            date: false,
-            rating: true
-        })
-    };
+    // onDateSort = () => {
+    //     this.setState({
+    //         movies: this.state.movies.sort((a, b) =>
+    //         b.release_year - a.release_year),
+    //         date: true,
+    //         rating: false
+    //     })
+    // };
+    //
+    // onRatingSort = () => {
+    //     this.setState({
+    //         movies: this.state.movies.sort((a, b) =>
+    //         b.rating - a.rating),
+    //         date: false,
+    //         rating: true
+    //     })
+    // };
 
     render() {
-        const { error } = this.props;
-        const { movies, date, rating } = this.state;
+        const { error, movies, onMovieClick } = this.props;
+        // const { movies } = this.state;
         return (
             <div>
                 {!!movies.length && (
@@ -50,13 +51,12 @@ class Feed extends Component {
                             </div>
                             <div>
                                 Sort by
-                                <button
-                                    className={`${styles.option} ${date ? styles.active : ''}`}
-                                    onClick={this.onDateSort}>release date
-                                </button>
-                                <button className={`${styles.option} ${rating ? styles.active : ''}`}
-                                        onClick={this.onRatingSort}>rating
-                                </button>
+                                <SortLink filter="SORT_BY_YEAR">
+                                    release date
+                                </SortLink>
+                                <SortLink filter="SORT_BY_RATING">
+                                    rating
+                                </SortLink>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,11 @@ class Feed extends Component {
                     )}
                     {!!movies.length && (movies.map((movie) => (
                             <div key={movie.show_id} className={styles.wrapper}>
-                                <MovieItem {...this.props} movie={movie} />
+                                <MovieItem
+                                    {...this.props}
+                                    movie={movie}
+                                    onclick={() => onMovieClick(movie.show_id)}
+                                />
                             </div>
                         ))
                     )}

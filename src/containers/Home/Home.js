@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import Feed from '../../components/Feed/Feed';
 import Header from '../../components/Header/Header';
 import Search from '../../components/Search/Search';
 
-import * as feedActions from '../../actions/feedActions';
+import { getMovies } from '../../actions';
 
 class Home extends Component {
     render() {
-        const { getMovies } = this.props.feedActions;
-        const { feed } = this.props;
+        const { getMoviesAction, feed } = this.props;
 
         return (
             <div>
                 <Header>
-                    <Search getMovies={getMovies} {...this.props} />
+                    <Search getMovies={getMoviesAction} {...this.props} />
                 </Header>
-                <Feed {...this.props} movies={feed.movies} error={feed.error} fetching={feed.fetching} />
+                <Feed {...this.props} movies={feed.movies} error={feed.error}
+                      fetching={feed.fetching} />
             </div>
         );
     }
@@ -30,10 +29,12 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
     return {
-        feedActions: bindActionCreators(feedActions, dispatch)
+        getMoviesAction: query => {
+            dispatch(getMovies(query))
+        }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

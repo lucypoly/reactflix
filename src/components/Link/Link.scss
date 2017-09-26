@@ -1,0 +1,15 @@
+.option {
+  cursor: pointer;
+  background: transparent;
+  outline: 0;
+  border: 0;
+  color: #424242;
+}
+
+.option:focus {
+  outline: 0;
+}
+
+.active {
+  color: #f55263;
+}

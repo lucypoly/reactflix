@@ -1,8 +1,7 @@
 import { GET_MOVIES_REQUEST, GET_MOVIES_SUCCESS, GET_MOVIES_ERROR } from '../constants/Feed';
 import request from 'axios';
 
-export function getMovies(query) {
-
+export const getMovies = (query) => {
     return (dispatch) => {
         dispatch({
             type: GET_MOVIES_REQUEST,
@@ -23,4 +22,18 @@ export function getMovies(query) {
                 })
             })
     }
-}
+};
+
+export const setSortFilter = (filter) => {
+    return {
+        type: 'SET_SORT_FILTER',
+        filter
+    }
+};
+
+export const toggleMovie = id => {
+    return {
+        type: 'TOGGLE_MOVIE',
+        id
+    }
+};
